@@ -1,0 +1,26 @@
+<div>
+    <canvas id="{{ .Get "chartName" }}"></canvas>
+  </div>
+  
+  <script>
+    const {{ .Get "chartName" | safeJS }} = document.getElementById('{{ .Get "chartName" }}');
+  
+    new Chart({{ .Get "chartName" | safeJS }}, {
+      type: 'bar',
+      data: {
+        labels: {{ .Get "labels" | safeJS }},
+        datasets: [{
+          label: {{ .Get "label" }},
+          data: {{ .Get "data" | safeJS }},
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>

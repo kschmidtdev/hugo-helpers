@@ -1,0 +1,7 @@
+<!-- prevent this shortcode from being loaded more than once per page -->
+{{ if not ($.Page.Scratch.Get "chartsloaded") }}
+  {{ $.Page.Scratch.Set "chartsloaded" 1 }}
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+{{ end }}
